@@ -32,16 +32,28 @@ class Star:
         surface.set_at(pos, self.color)
 
 
-def draw_ellipse(surface, x, y, a, b, amgle):
+def get_ellipse_point(cx,cy,a,b,alpha,theta):
+    x = a * math.cos(alpha) * math.cos(theta) - b * math.sin(alpha) * math.sin(theta) + cx
+    y = a * math.cos(alpha) * math.sin(theta) + b * math.sin(alpha) * math.cos(theta) + cy
+    return x, y
 
+
+def draw_ellipse(surface, x, y, a, b, tilt):
     for angle in range(360):
-        x1 = a * math.cos(math.radians(angle))
-        y1 = b * math.sin(math.radians(angle))
-        x2 = a * math.cos(math.radians(angle+1))
-        y2 = b * math.sin(math.radians(angle+1))
+        x1,y1 = get_ellipse_point(x,y,a,b,math.radians(angle),math.radians(tilt))
+        x2,y2 = get_ellipse_point(x,y,a,b,math.radians(angle+1),math.radians(tilt))
 
-        pg.draw.line(surface, white, (x+x1, y+y1), (x+x2, y+y2))
+        surface.set_at((int(x1), int(y1)),(255, 240, 200, 1))
+        #pg.draw.line(surface, (255, 240, 200, 50), (x1, y1), (x2, y2))
 
+def draw_density_wave(surface,x,y,rmin,rmax,rstep,tilt_step):
+    tilt = 0
+    for i in range(1000):
+        perc = 0.7
+        for r in range(rmin,rmax,rstep):
+            draw_ellipse(surface,x,y,r*perc,r,tilt)
+            tilt += tilt_step
+            perc+=0.00001
 
 
 def main():
@@ -65,7 +77,10 @@ def main():
     while not done:
         screen.fill((0, 0, 0, 0))
 
-        draw_ellipse(surface, WINCENTER[0], WINCENTER[1], 100, 50, 45)
+        #draw_ellipse(surface, WINCENTER[0], WINCENTER[1], 100, 50, 45)
+        #draw_ellipse(surface, WINCENTER[0], WINCENTER[1], 100, 50, 60)
+        #draw_ellipse(surface, WINCENTER[0], WINCENTER[1], 100, 50, 25)
+        draw_density_wave(surface,WINCENTER[0], WINCENTER[1], 10,300,10,5)
         screen.blit(surface, (0, 0))
 
         #textsurface = myfont.render(f'Count : {count/1000000}', False, white)
