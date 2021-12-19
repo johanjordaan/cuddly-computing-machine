@@ -8,7 +8,9 @@
 <body>
 
 <div>
-    &nbsp;<button type="button" class="btn btn-primary">Primary</button>
+    &nbsp;
+    <button type="button" class="btn btn-primary" onclick="run()">Run</button>
+    <button type="button" class="btn" onclick="reset_canvas()">Clear</button>
     <br>
     &nbsp;<label for="customRange1" class="form-label">Example range</label>
     &nbsp;<input type="range" class="form-range" id="customRange1">
@@ -24,16 +26,24 @@
     </canvas>
 </div>
 
-
 <script src="draw.js"></script>
-<script>
-    var c = document.getElementById("canvas");
-    var ctx = c.getContext("2d");
+<script src="interpolation.js"></script>
 
-    draw_ellipse(ctx,320,240,50,50,0)
-    draw_ellipse(ctx,320,240,100,50,0)
-    draw_ellipse(ctx,320,240,100,100,0)
+<script>
+    let c = document.getElementById("canvas");
+    let ctx = c.getContext("2d");
 </script>
+
+<script>
+    let reset_canvas = () => {
+        clear_canvas(ctx, 640,480);
+    }
+
+    let run = () => {
+        draw_wave(ctx, 320, 240, 0, 250, true);
+    }
+</script>
+
 
 </body>
 </html>
