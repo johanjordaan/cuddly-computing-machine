@@ -38,12 +38,12 @@ draw_ellipse = (ctx, x, y, a, b, tilt, jitter) => {
 draw_wave = (ctx, x, y, min_a, max_a, jitter) => {
     //let a_f = interpolation.linear(min_a,max_a,150)
     let a_f = interpolation.stacked_linear([
-        [min_a,min_a+100,20],
-        [min_a+100,max_a,80],
+        [min_a,min_a+50,20],
+        [min_a+51,max_a,100],
     ]);
 
     //let tilt_f = interpolation.linear(0,180, 180)
-    let tilt_f = interpolation.project(0,180, min_a,max_a)
+    let tilt_f = interpolation.project(0,200, min_a,max_a)
 
     while (a_f.hasNext()) {
         let a = a_f.next()

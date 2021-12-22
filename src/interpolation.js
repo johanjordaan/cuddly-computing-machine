@@ -1,15 +1,29 @@
 const linear = (a, b, n) => {
-    let state = {a, b, n, delta:(b-a)/n, i:0}
+
     return {
-        "hasNext": () => {
-            return state.i<=n;
+        "params": () => {
+            return [
+                { "a": "from" },
+                { "b": "to" },
+                { "n": "steps" },
+            ];
         },
-        "next": () => {
-            state.i += 1;
-            return a+state.delta*state.i;
-        },
-        "reset": () => {
-            state.i = 0
+
+        "get": (a, b, n) => {
+
+            let state = {a, b, n, delta:(b-a)/n, i:0}
+            return {
+                "hasNext": () => {
+                    return state.i<=n;
+                },
+                "next": () => {
+                    state.i += 1;
+                    return a+state.delta*state.i;
+                },
+                "reset": () => {
+                    state.i = 0
+                }
+            }
         }
     }
 }
