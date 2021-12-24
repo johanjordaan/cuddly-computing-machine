@@ -1,14 +1,12 @@
-const linear = (a, b, n) => {
-
+const linear = () => {
     return {
         "params": () => {
             return [
-                { "a": "from" },
-                { "b": "to" },
-                { "n": "steps" },
+                { name: "a", label: "from" },
+                { name: "b", label: "to" },
+                { name: "n", label: "steps" },
             ];
         },
-
         "get": (a, b, n) => {
 
             let state = {a, b, n, delta:(b-a)/n, i:0}
@@ -81,4 +79,8 @@ const interpolation = {
     "linear": linear,
     "stacked_linear": stacked_linear,
     "project" : project,
+}
+
+if(module!==null) {
+    module.exports = interpolation
 }
