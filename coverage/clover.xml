@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1640348967728" clover="3.2.0">
+  <project timestamp="1640348967728" name="All files">
+    <metrics statements="43" coveredstatements="43" conditionals="14" coveredconditionals="14" methods="10" coveredmethods="10" elements="67" coveredelements="67" complexity="0" loc="43" ncloc="43" packages="1" files="2" classes="2"/>
+    <file name="FN.js" path="/home/johan/projects/cuddly-computing-machine/src/base/FN.js">
+      <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="5" count="6" type="stmt"/>
+      <line num="6" count="6" type="stmt"/>
+      <line num="7" count="18" type="cond" truecount="2" falsecount="0"/>
+      <line num="11" count="6" type="stmt"/>
+      <line num="12" count="31" type="stmt"/>
+      <line num="13" count="31" type="stmt"/>
+      <line num="16" count="6" type="stmt"/>
+      <line num="17" count="7" type="stmt"/>
+      <line num="18" count="7" type="stmt"/>
+      <line num="22" count="6" type="stmt"/>
+      <line num="29" count="2" type="stmt"/>
+      <line num="30" count="26" type="stmt"/>
+      <line num="33" count="2" type="stmt"/>
+      <line num="34" count="2" type="stmt"/>
+    </file>
+    <file name="FNStepper.js" path="/home/johan/projects/cuddly-computing-machine/src/base/FNStepper.js">
+      <metrics statements="28" coveredstatements="28" conditionals="12" coveredconditionals="12" methods="4" coveredmethods="4"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="15" count="5" type="stmt"/>
+      <line num="16" count="5" type="stmt"/>
+      <line num="17" count="5" type="stmt"/>
+      <line num="19" count="5" type="stmt"/>
+      <line num="30" count="5" type="stmt"/>
+      <line num="33" count="1" type="stmt"/>
+      <line num="34" count="28" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="38" count="6" type="stmt"/>
+      <line num="39" count="6" type="stmt"/>
+      <line num="40" count="6" type="stmt"/>
+      <line num="41" count="6" type="stmt"/>
+      <line num="43" count="6" type="stmt"/>
+      <line num="46" count="1" type="stmt"/>
+      <line num="47" count="24" type="cond" truecount="4" falsecount="0"/>
+      <line num="48" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="49" count="1" type="stmt"/>
+      <line num="51" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="52" count="1" type="stmt"/>
+      <line num="54" count="1" type="stmt"/>
+      <line num="58" count="22" type="cond" truecount="4" falsecount="0"/>
+      <line num="59" count="1" type="stmt"/>
+      <line num="62" count="22" type="stmt"/>
+      <line num="63" count="22" type="stmt"/>
+      <line num="64" count="22" type="stmt"/>
+      <line num="65" count="22" type="stmt"/>
+    </file>
+  </project>
+</coverage>

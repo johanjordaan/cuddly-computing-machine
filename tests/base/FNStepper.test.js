@@ -63,7 +63,7 @@ describe("FNStepper", () => {
             expect(next_current_y).toEqual(12)
         })
 
-        it("return null if there is not more values to fetch", () => {
+        it("return null if there is not more values to fetch in MODES.ONCE", () => {
             let state,current_y;
             [state,current_y] =  FNStepper.create(10, 20, fn, 5, FNStepper.MODES.ONCE);
 
@@ -79,6 +79,53 @@ describe("FNStepper", () => {
 
             expect(current_y).toEqual(null)
         })
+
+        it("return the first value if there is not more values to fetch in MODES.REPEAT", () => {
+            let state,current_y;
+            [state,current_y] =  FNStepper.create(10, 20, fn, 5, FNStepper.MODES.REPEAT);
+
+            for(let i=0;i<5;i++) {
+                [state,current_y] = FNStepper.next(state);
+            }
+            [state,current_y] = FNStepper.next(state);
+
+            expect(state.current_step).toEqual(0)
+            expect(state.step_delta).toEqual(1)
+            expect(state.current_x).toEqual(10)
+            expect(state.current_y).toEqual(10)
+
+            expect(current_y).toEqual(10)
+        })
+
+        it("return the last value if there is not more values to fetch in MODES.BOUNCE", () => {
+            let state,current_y;
+            [state,current_y] =  FNStepper.create(10, 20, fn, 5, FNStepper.MODES.BOUNCE);
+
+            for(let i=0;i<5;i++) {
+                [state,current_y] = FNStepper.next(state);
+            }
+            [state,current_y] = FNStepper.next(state);
+
+            expect(state.current_step).toEqual(4);
+            expect(state.step_delta).toEqual(-1);
+            expect(state.current_x).toEqual(18);
+            expect(state.current_y).toEqual(18);
+
+            expect(current_y).toEqual(18);
+
+            for(let i=0;i<5;i++) {
+                [state,current_y] = FNStepper.next(state);
+            }
+
+            expect(state.current_step).toEqual(1);
+            expect(state.step_delta).toEqual(1);
+            expect(state.current_x).toEqual(12);
+            expect(state.current_y).toEqual(12);
+
+            expect(current_y).toEqual(12);
+        })
+
+
 
     })
 })

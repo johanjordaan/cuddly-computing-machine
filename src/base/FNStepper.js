@@ -45,21 +45,18 @@ const reset = (state) => {
 
 const next = (state) => {
     if(state.current_step>=state.steps && state.step_delta>0) {
-        if(state.mode === MODES.ONCE) {
-            return [state, null]
-        }
         if(state.mode === MODES.REPEAT) {
             return reset(state)
         }
-        if(state.mode === MODES.BOUNCE) {
+        else if(state.mode === MODES.BOUNCE) {
             state.step_delta *= -1
+        } else {
+            return [state, null]
         }
     }
 
     if(state.current_step<=0 && state.step_delta<0) {
-        if(state.mode === MODES.BOUNCE) {
-            state.step_delta *= -1
-        }
+        state.step_delta *= -1
     }
 
     state.current_step += state.step_delta
