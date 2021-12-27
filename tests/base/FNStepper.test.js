@@ -1,7 +1,7 @@
 "use strict";
 
 const FN = require("../../src/base/FN");
-const FNStepper = require('../../src/base/FNStepper')
+const FNStepper = require('../../src/base/FNStepper');
 
 describe("FNStepper", () => {
 
@@ -23,29 +23,29 @@ describe("FNStepper", () => {
         {name: 'm', value: 1},
         {name: 'x', dependent: true},
         {name: 'c', value: 0}
-    ]
-    let fn = FN.create(parameters, fn_fn, fn_inverse)
+    ];
+    let fn = FN.create(parameters, fn_fn, fn_inverse);
 
     describe("create", () => {
         it("should create a FNStepper object", () => {
-            let [state, current_y] = FNStepper.create(10, 20, fn, 5)
+            let [state, current_y] = FNStepper.create(10, 20, fn, 5);
 
-            expect(state.y_from).toEqual(10)
-            expect(state.y_to).toEqual(20)
-            expect(state.fn).toBe(fn)
-            expect(state.steps).toEqual(5)
+            expect(state.y_from).toEqual(10);
+            expect(state.y_to).toEqual(20);
+            expect(state.fn).toBe(fn);
+            expect(state.steps).toEqual(5);
 
-            expect(state.x_from).toEqual(10)
-            expect(state.x_to).toEqual(20)
-            expect(state.x_delta).toEqual((20 - 10) / 5)
+            expect(state.x_from).toEqual(10);
+            expect(state.x_to).toEqual(20);
+            expect(state.x_delta).toEqual((20 - 10) / 5);
 
-            expect(state.current_step).toEqual(0)
-            expect(state.current_x).toEqual(10)
-            expect(state.current_y).toEqual(10)
+            expect(state.current_step).toEqual(0);
+            expect(state.current_x).toEqual(10);
+            expect(state.current_y).toEqual(10);
 
-            expect(current_y).toEqual(10)
-        })
-    })
+            expect(current_y).toEqual(10);
+        });
+    });
 
     describe("reset", () => {
         it("should reset a FNStepper object to its initial state", () => {
@@ -71,22 +71,22 @@ describe("FNStepper", () => {
             expect(state.current_y).toEqual(10);
 
             expect(current_y).toEqual(10);
-        })
-    })
+        });
+    });
 
 
     describe("next", () => {
         it("return the next step and the new state", () => {
-            let [state, current_y] = FNStepper.create(10, 20, fn, 5)
+            let [state, current_y] = FNStepper.create(10, 20, fn, 5);
 
-            let [next_state, next_current_y] = FNStepper.next(state)
+            let [next_state, next_current_y] = FNStepper.next(state);
 
-            expect(next_state.current_step).toEqual(1)
-            expect(next_state.current_x).toEqual(12)
-            expect(next_state.current_y).toEqual(12)
+            expect(next_state.current_step).toEqual(1);
+            expect(next_state.current_x).toEqual(12);
+            expect(next_state.current_y).toEqual(12);
 
-            expect(next_current_y).toEqual(12)
-        })
+            expect(next_current_y).toEqual(12);
+        });
 
         it("return null if there is not more values to fetch", () => {
             let state, current_y;
@@ -102,17 +102,17 @@ describe("FNStepper", () => {
             expect(state.current_y).toEqual(20);
 
             expect(current_y).toEqual(null);
-        })
-    })
+        });
+    });
 
     describe("map", () => {
         it("return the array of mapped values using the function", () => {
             let state, current_y;
             [state, current_y] = FNStepper.create(10, 20, fn, 5);
-            let result = FNStepper.map(state, (v) => { return v; })
+            let result = FNStepper.map(state, (v) => { return v; });
 
-            expect(result.length).toEqual(6)
-
+            expect(result.length).toEqual(6);
+            expect(result).toEqual([10,12,14,16,18,20]);
         });
     });
 });
