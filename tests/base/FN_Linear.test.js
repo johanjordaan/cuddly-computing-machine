@@ -3,7 +3,7 @@
 const FN = require('../../src/base/FN')
 const FN_Linear = require('../../src/base/FN_Linear')
 
-describe("FNLinear", () => {
+describe("FN_Linear", () => {
 
     describe( "create", () => {
         it("should create a FN object", () =>{

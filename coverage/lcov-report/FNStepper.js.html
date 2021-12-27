@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>25/25</span>
+                <span class='fraction'>29/29</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>25/25</span>
+                <span class='fraction'>29/29</span>
             </div>
         
             
@@ -138,7 +138,18 @@
 <a name='L73'></a><a href='#L73'>73</a>
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -146,14 +157,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,11 +174,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -213,80 +230,90 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">"use strict";
 &nbsp;
 /* istanbul ignore next */
 if(typeof FN === 'undefined') {
     global.FN = require('../base/FN')
+    global.FN_Lookup = require('../base/FN_Lookup')
+&nbsp;
 }
 &nbsp;
-const create = (y_from,y_to,fn,steps) =&gt; {
-    let x_from = fn.fn(y_from);
-    let x_to = fn.inverse(y_to);
-    let x_delta = (x_to-x_from)/(steps);
+let FNStepper = new function() {
+    this.create = (y_from, y_to, fn, steps) =&gt; {
+        let x_from = fn.inverse(y_from);
+        let x_to = fn.inverse(y_to);
+        let x_delta = (x_to - x_from) / (steps);
 &nbsp;
-    let state = {
-        y_from,
-        y_to,
-        fn,
-        steps,
+        let state = {
+            y_from,
+            y_to,
+            fn,
+            steps,
 &nbsp;
-        x_from,
-        x_to,
-        x_delta,
+            x_from,
+            x_to,
+            x_delta,
 &nbsp;
-        current_step: 0,
-        current_x:x_from,
-        current_y:y_from
+            current_step: 0,
+            current_x: x_from,
+            current_y: y_from
+        }
+&nbsp;
+        return this.peek(state);
     }
 &nbsp;
-    return peek(state);
-}
-&nbsp;
-const peek = (state) =&gt; {
-    return [state, state.current_y];
-}
-&nbsp;
-const reset = (state) =&gt; {
-    return create(state.y_from,state.y_to,state.fn,state.steps);
-}
-&nbsp;
-const next = (state) =&gt; {
-    if(state.current_step&gt;=state.steps) {
-        return [state, null]
+    this.create_from_array = (array) =&gt; {
+        const fn  = FN_Lookup.create(array);
+        return this.create(array[0],array[array.length-1],fn, array.length-1);
     }
 &nbsp;
-    state.current_step += 1
-    state.current_x = state.x_from + state.current_step* state.x_delta
-    state.current_y = FN.run(state.fn, state.current_x)
-    return peek(state)
-}
-&nbsp;
-// Iterates over the state and return the results of applying f to each value
-// leaving the state unaffected
-const map = (state,f) =&gt; {
-    let ret_val = [];
-    let state_copy = { ...state };
-    let current_y;
-&nbsp;
-    [state_copy, current_y] = reset(state_copy);
-    while(current_y !== null) {
-        ret_val.push(f(current_y));
-        [state_copy, current_y] = next(state_copy);
+    this.peek = (state) =&gt; {
+        return [state, state.current_y];
     }
 &nbsp;
-    return ret_val;
-}
+    this.reset = (state) =&gt; {
+        return this.create(state.y_from, state.y_to, state.fn, state.steps);
+    }
 &nbsp;
+    this.next = (state) =&gt; {
+        if (state.current_step &gt;= state.steps) {
+            return [state, null]
+        }
+&nbsp;
+        state.current_step += 1
+        state.current_x = state.x_from + state.current_step * state.x_delta
+        state.current_y = FN.run(state.fn, state.current_x)
+        return this.peek(state)
+    }
+&nbsp;
+    // Iterates over the state and return the results of applying f to each value
+    // leaving the state unaffected
+    this.map = (state, f) =&gt; {
+        let ret_val = [];
+        let state_copy = {...state};
+        let current_y;
+&nbsp;
+        [state_copy, current_y] = this.reset(state_copy);
+        while (current_y !== null) {
+            ret_val.push(f(current_y));
+            [state_copy, current_y] = this.next(state_copy);
+        }
+&nbsp;
+        return ret_val;
+    }
+}
 &nbsp;
 /* istanbul ignore next */
 if(module!==null) {
     module.exports = {
-        create,
-        peek,
-        reset,
-        next,
-        map,
+        create:FNStepper.create,
+        create_from_array:FNStepper.create_from_array,
+        peek:FNStepper.peek,
+        reset:FNStepper.reset,
+        next:FNStepper.next,
+        map:FNStepper.map,
     }
 }</pre></td></tr></table></pre>
 
@@ -295,7 +322,7 @@ if(module!==null) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a>
-                at Mon Dec 27 2021 20:25:19 GMT+1100 (Australian Eastern Daylight Time)
+                at Tue Dec 28 2021 07:24:47 GMT+1100 (Australian Eastern Daylight Time)
             </div>
         </div>
         <script src="prettify.js"></script>

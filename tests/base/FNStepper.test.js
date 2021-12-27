@@ -47,6 +47,26 @@ describe("FNStepper", () => {
         });
     });
 
+    describe("create_from_array", () => {
+        it("should create a FNStepper object", () => {
+            let [state, current_y] = FNStepper.create_from_array([1,3,5,7,9]);
+
+            expect(state.y_from).toEqual(1);
+            expect(state.y_to).toEqual(9);
+            expect(state.steps).toEqual(4);
+
+            expect(state.x_from).toEqual(0);
+            expect(state.x_to).toEqual(4);
+            expect(state.x_delta).toEqual(1);
+
+            expect(state.current_step).toEqual(0);
+            expect(state.current_x).toEqual(0);
+            expect(state.current_y).toEqual(1);
+
+            expect(current_y).toEqual(1);
+        });
+    });
+
     describe("reset", () => {
         it("should reset a FNStepper object to its initial state", () => {
             let [start_state, start_current_y] = FNStepper.create(10, 20, fn, 5);
