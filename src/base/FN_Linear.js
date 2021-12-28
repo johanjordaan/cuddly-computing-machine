@@ -36,7 +36,7 @@ let FN_Linear = new function() {
 
 
 /* istanbul ignore next */
-if(module!==null) {
+if(typeof module !== 'undefined') {
     module.exports = {
         parameters: FN_Linear.parameters,
         create: FN_Linear.create

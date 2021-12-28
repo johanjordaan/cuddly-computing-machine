@@ -38,7 +38,7 @@ let FN = new function() {
 
 
 /* istanbul ignore next */
-if(module!==null) {
+if(typeof module !== 'undefined') {
     module.exports = {
         create:FN.create,
         run:FN.run,

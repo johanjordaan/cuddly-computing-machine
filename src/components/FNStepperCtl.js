@@ -7,7 +7,10 @@ class FNStepperCtl extends React.Component {
             y_from: undefined,
             y_to:undefined,
             steps:undefined,
-            type:"Linear",
+            type:'linear',
+            parameter_lookup:{
+                'linear':FN_Linear.parameters
+            }
         };
     }
 
@@ -16,6 +19,9 @@ class FNStepperCtl extends React.Component {
             `
             <form>
                 <div className="row">
+                    <div className="col col-sm-1">      
+                        <label htmlFor="y_from" className="col-sm-1 col-form-label">{this.props.name}</label>
+                    </div>
                     <div className="col col-sm-1 x">                    
                         <input type="text" className="form-control form-control-sm" placeholder="y_from"/>
                     </div>
@@ -27,15 +33,16 @@ class FNStepperCtl extends React.Component {
                     </div>
                     <div className="col col-sm-2">      
                         <select className="form-control form-control-sm" id="type">
-                            <option>Linear</option>
+                            <option value="linear">Linear</option>
                         </select>
                     </div>
-                    <div className="col col-sm-1 x">                    
-                        <input type="text" className="form-control form-control-sm" placeholder="m"/>
-                    </div>
-                    <div className="col col-sm-1 x">                    
-                        <input type="text" className="form-control form-control-sm" placeholder="c"/>
-                    </div>
+                    {this.state.parameter_lookup[this.state.type].filter((p)=>{return !p.dependent}).map((p)=>{
+                        return(
+                            <div className="col col-sm-1 x">                    
+                                <input type="text" className="form-control form-control-sm" placeholder={p.label}/>
+                            </div>
+                        );
+                    })}
                 </div>
             </form>
             `

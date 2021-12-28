@@ -25,7 +25,8 @@ class ReactContainer extends React.Component {
     render() {
         return jsx(this)(`
             <div>
-                <FNStepperCtl></FNStepperCtl>
+                <FNStepperCtl name="Radius"></FNStepperCtl>
+                <FNStepperCtl name="Tilt"></FNStepperCtl>
                 <CanvasCtl></CanvasCtl>
             </div>
         `)

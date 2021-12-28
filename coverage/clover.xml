@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1640685827296" clover="3.2.0">
-  <project timestamp="1640685827296" name="All files">
-    <metrics statements="76" coveredstatements="76" conditionals="4" coveredconditionals="4" methods="22" coveredmethods="22" elements="102" coveredelements="102" complexity="0" loc="76" ncloc="76" packages="1" files="4" classes="4"/>
+<coverage generated="1640690067035" clover="3.2.0">
+  <project timestamp="1640690067035" name="All files">
+    <metrics statements="75" coveredstatements="75" conditionals="4" coveredconditionals="4" methods="22" coveredmethods="22" elements="101" coveredelements="101" complexity="0" loc="75" ncloc="75" packages="1" files="4" classes="4"/>
     <file name="FN.js" path="/home/johan/projects/cuddly-computing-machine/src/base/FN.js">
-      <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
+      <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
       <line num="3" count="4" type="stmt"/>
       <line num="4" count="4" type="stmt"/>
-      <line num="5" count="4" type="stmt"/>
+      <line num="5" count="17" type="stmt"/>
       <line num="6" count="17" type="stmt"/>
-      <line num="7" count="17" type="stmt"/>
-      <line num="8" count="45" type="cond" truecount="2" falsecount="0"/>
-      <line num="11" count="17" type="stmt"/>
+      <line num="7" count="45" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="17" type="stmt"/>
+      <line num="11" count="25" type="stmt"/>
       <line num="12" count="25" type="stmt"/>
-      <line num="13" count="25" type="stmt"/>
-      <line num="16" count="17" type="stmt"/>
+      <line num="15" count="17" type="stmt"/>
+      <line num="16" count="22" type="stmt"/>
       <line num="17" count="22" type="stmt"/>
-      <line num="18" count="22" type="stmt"/>
-      <line num="22" count="17" type="stmt"/>
-      <line num="30" count="4" type="stmt"/>
-      <line num="31" count="25" type="stmt"/>
-      <line num="34" count="4" type="stmt"/>
-      <line num="35" count="6" type="stmt"/>
+      <line num="21" count="17" type="stmt"/>
+      <line num="29" count="4" type="stmt"/>
+      <line num="30" count="25" type="stmt"/>
+      <line num="33" count="4" type="stmt"/>
+      <line num="34" count="6" type="stmt"/>
     </file>
     <file name="FNStepper.js" path="/home/johan/projects/cuddly-computing-machine/src/base/FNStepper.js">
       <metrics statements="29" coveredstatements="29" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
