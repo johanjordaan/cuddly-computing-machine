@@ -9,9 +9,14 @@ describe("FN_Lookup", () => {
         it("should create a FN object", () =>{
             let fn = FN_Lookup.create([1,3,5,7,9]);
             expect(fn.parameters).toEqual([
-                {name:'array',value:[1,3,5,7,9]},
+                {name:'array',label:'array'},
                 {name:'x',dependent:true},
             ]);
+            expect(fn.parameter_values).toEqual({
+                    array:[1,3,5,7,9]
+            });
+
+
         })
     })
 

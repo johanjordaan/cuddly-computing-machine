@@ -6,6 +6,12 @@ if(typeof FN === 'undefined') {
 }
 
 let FN_Linear = new function() {
+    this.parameters = [
+        {name:'m',label:"slope"},
+        {name:'x',dependent:true},
+        {name:'c',label:"y intercept"}
+    ];
+
     this.create = (m,c) => {
         let fn_fn = (args) => {
             let m = args.m;
@@ -22,12 +28,8 @@ let FN_Linear = new function() {
             return (y-c)/m;
         }
 
-        let parameters = [
-            {name:'m',value:m},
-            {name:'x',dependent:true},
-            {name:'c',value:c}
-        ];
-        let fn = FN.create(parameters,fn_fn,fn_inverse);
+        let parameter_values = {m,c};
+        let fn = FN.create(this.parameters,parameter_values,fn_fn,fn_inverse);
         return fn;
     }
 }
@@ -36,6 +38,7 @@ let FN_Linear = new function() {
 /* istanbul ignore next */
 if(module!==null) {
     module.exports = {
+        parameters: FN_Linear.parameters,
         create: FN_Linear.create
     }
 }

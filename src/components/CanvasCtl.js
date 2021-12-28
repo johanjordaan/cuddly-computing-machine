@@ -8,7 +8,10 @@ class CanvasCtl extends React.Component {
             height: 480,
             ctx: null
         };
-        this.clear = this.clear.bind(this)
+        this.clear = this.clear.bind(this);
+        this.update = this.update.bind(this);
+        this.get_ctx = this.get_ctx.bind(this);
+
     }
 
     get_ctx() {
@@ -20,7 +23,23 @@ class CanvasCtl extends React.Component {
     }
 
     clear() {
-        clear_canvas(this.get_ctx(), this.state.width,this.state.height);
+        let ctx = this.get_ctx();
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(255,255,255,1)';
+        ctx.fillRect(0, 0, this.state.width, this.state.height);
+        ctx.stroke();
+    }
+
+    update() {
+        let ctx = this.get_ctx();
+        draw_wave(
+            ctx,
+            this.state.width/2,
+            this.state.height/2,
+            0,
+            250,
+            true
+        );
     }
 
     render() {
@@ -29,6 +48,7 @@ class CanvasCtl extends React.Component {
             `
                 <div className="CanvasCtl">
                     <button type="button" className="btn btn-sm clearBtn" onClick={this.clear}>Clear</button>
+                    <button type="button" className="btn btn-primary" onClick={this.update}>Update</button>
                     <canvas
                             id="canvas"
                             className="canvas"

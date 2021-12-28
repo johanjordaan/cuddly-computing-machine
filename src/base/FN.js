@@ -1,13 +1,11 @@
 "use strict";
 
-const {run_inverse} = require("./FN");
 let FN = new function() {
-    this.create = (parameters,fn,inverse) => {
+    this.create = (parameters,parameter_values,fn,inverse) => {
         let args = {};
         parameters.forEach((parameter)=>{
-            args[parameter.name] = (parameter.independent===true)?null:parameter.value;
+            args[parameter.name] = (parameter.dependent===true)?null:parameter_values[parameter.name];
         })
-
 
         let closed_fn = (x) => {
             args.x = x;
@@ -24,6 +22,7 @@ let FN = new function() {
             fn:closed_fn,
             inverse:closed_fn_inverse,
             parameters,
+            parameter_values,
         }
     }
 

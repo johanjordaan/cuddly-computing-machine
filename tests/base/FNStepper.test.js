@@ -20,11 +20,15 @@ describe("FNStepper", () => {
         return (y - c) / m;
     }
     let parameters = [
-        {name: 'm', value: 1},
+        {name: 'm', label:'slope'},
         {name: 'x', dependent: true},
-        {name: 'c', value: 0}
+        {name: 'c', label:'y intercept'}
     ];
-    let fn = FN.create(parameters, fn_fn, fn_inverse);
+    let parameter_values = {
+        m:1,
+        c:0
+    }
+    let fn = FN.create(parameters,parameter_values,fn_fn, fn_inverse);
 
     describe("create", () => {
         it("should create a FNStepper object", () => {

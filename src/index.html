@@ -12,37 +12,19 @@
 <!-- Babel for live jsx -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 
-<body>
-
-<div id="react_container"></div>
-
-<div>
-    <button type="button" class="btn btn-primary" onclick="run()">Run</button>
-</div>
-
-
-<script src="draw.js"></script>
-<script src="interpolation.js"></script>
-
-<script>
-    let run = () => {
-        draw_wave(ctx, 320, 240, 0, 250, true);
-    }
-</script>
-
-
-</body>
-
-<script src="./components/ReactContainer.js"></script>
-<script src="./components/InterpolationCtl.js"></script>
-
-<script src="./components/CanvasCtl.js"></script>
 <link href="./css/styles.css" rel="stylesheet">
 
-<script src="./components/LikeButton.js"></script>
-<script>
-    bindReactContainer('#react_container')
-</script>
+<body>
+    <div id="react_container"></div>
+</body>
+
+    <script src="draw.js"></script>
+    <script src="./components/ReactContainer.js"></script>
+    <script src="./components/CanvasCtl.js"></script>
+    <script src="./components/FNStepperCtl.js"></script>
+    <script>
+        bindReactContainer('#react_container')
+    </script>
 
 </html>
 

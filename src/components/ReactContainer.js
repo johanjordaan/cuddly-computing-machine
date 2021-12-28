@@ -18,13 +18,14 @@ class ReactContainer extends React.Component {
         super(props);
     }
 
+    run() {
+
+    }
+
     render() {
         return jsx(this)(`
             <div>
-                <LikeButton></LikeButton>
-                <InterpolationCtl name="Radius"></InterpolationCtl>
-                <InterpolationCtl name="Tilt"></InterpolationCtl>
-                <hr/>
+                <FNStepperCtl></FNStepperCtl>
                 <CanvasCtl></CanvasCtl>
             </div>
         `)

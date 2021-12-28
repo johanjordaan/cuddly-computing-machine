@@ -56,10 +56,3 @@ draw_wave = (ctx, x, y, min_a, max_a, jitter) => {
         draw_ellipse(ctx, x, y, a, a * .8, tilt, jitter)
     }
 }
-
-clear_canvas = (ctx, w, h) => {
-    ctx.beginPath();
-    ctx.fillStyle = 'rgba(255,255,255,1)';
-    ctx.fillRect(0, 0, w, h);
-    ctx.stroke();
-}

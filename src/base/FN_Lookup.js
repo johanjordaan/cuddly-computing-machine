@@ -6,6 +6,12 @@ if(typeof FN === 'undefined') {
 }
 
 let FN_Lookup = new function() {
+    this.parameters = [
+        {name:'array',label:'array'},
+        {name:'x',dependent:true},
+    ];
+
+
     this.create = (array) => {
         const fn_fn = (args) => {
             let x = args.x;
@@ -17,11 +23,8 @@ let FN_Lookup = new function() {
             let array = args.array;
             return array.indexOf(y);
         }
-        let parameters = [
-            {name:'array',value:array},
-            {name:'x',dependent:true},
-        ];
-        let fn = FN.create(parameters,fn_fn,fn_inverse);
+        let parameter_values = { array }
+        let fn = FN.create(this.parameters,parameter_values,fn_fn,fn_inverse);
         return fn;
     }
 }
@@ -30,6 +33,7 @@ let FN_Lookup = new function() {
 /* istanbul ignore next */
 if(module!==null) {
     module.exports = {
+        parameters: FN_Lookup.parameters,
         create: FN_Lookup.create
     }
 }

@@ -9,10 +9,16 @@ describe("FN_Linear", () => {
         it("should create a FN object", () =>{
             let fn = FN_Linear.create(5,-20);
             expect(fn.parameters).toEqual([
-                {name:'m',value:5},
+                {name:'m',label:'slope'},
                 {name:'x',dependent:true},
-                {name:'c',value:-20}
+                {name:'c',label:'y intercept'}
             ]);
+            expect(fn.parameter_values).toEqual(
+                {
+                    m:5,
+                    c:-20
+                }
+            )
         })
     })
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1640636687603" clover="3.2.0">
-  <project timestamp="1640636687603" name="All files">
-    <metrics statements="74" coveredstatements="74" conditionals="4" coveredconditionals="4" methods="22" coveredmethods="22" elements="100" coveredelements="100" complexity="0" loc="74" ncloc="74" packages="1" files="4" classes="4"/>
+<coverage generated="1640685827296" clover="3.2.0">
+  <project timestamp="1640685827296" name="All files">
+    <metrics statements="76" coveredstatements="76" conditionals="4" coveredconditionals="4" methods="22" coveredmethods="22" elements="102" coveredelements="102" complexity="0" loc="76" ncloc="76" packages="1" files="4" classes="4"/>
     <file name="FN.js" path="/home/johan/projects/cuddly-computing-machine/src/base/FN.js">
       <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
       <line num="3" count="4" type="stmt"/>
@@ -10,13 +10,13 @@
       <line num="6" count="17" type="stmt"/>
       <line num="7" count="17" type="stmt"/>
       <line num="8" count="45" type="cond" truecount="2" falsecount="0"/>
-      <line num="12" count="17" type="stmt"/>
+      <line num="11" count="17" type="stmt"/>
+      <line num="12" count="25" type="stmt"/>
       <line num="13" count="25" type="stmt"/>
-      <line num="14" count="25" type="stmt"/>
-      <line num="17" count="17" type="stmt"/>
+      <line num="16" count="17" type="stmt"/>
+      <line num="17" count="22" type="stmt"/>
       <line num="18" count="22" type="stmt"/>
-      <line num="19" count="22" type="stmt"/>
-      <line num="23" count="17" type="stmt"/>
+      <line num="22" count="17" type="stmt"/>
       <line num="30" count="4" type="stmt"/>
       <line num="31" count="25" type="stmt"/>
       <line num="34" count="4" type="stmt"/>
@@ -55,38 +55,40 @@
       <line num="71" count="1" type="stmt"/>
     </file>
     <file name="FN_Linear.js" path="/home/johan/projects/cuddly-computing-machine/src/base/FN_Linear.js">
-      <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <line num="8" count="1" type="stmt"/>
       <line num="9" count="1" type="stmt"/>
-      <line num="10" count="5" type="stmt"/>
-      <line num="11" count="4" type="stmt"/>
-      <line num="12" count="4" type="stmt"/>
-      <line num="13" count="4" type="stmt"/>
-      <line num="15" count="4" type="stmt"/>
-      <line num="17" count="5" type="stmt"/>
-      <line num="18" count="2" type="stmt"/>
-      <line num="19" count="2" type="stmt"/>
-      <line num="20" count="2" type="stmt"/>
-      <line num="22" count="2" type="stmt"/>
-      <line num="25" count="5" type="stmt"/>
-      <line num="30" count="5" type="stmt"/>
-      <line num="31" count="5" type="stmt"/>
-    </file>
-    <file name="FN_Lookup.js" path="/home/johan/projects/cuddly-computing-machine/src/base/FN_Lookup.js">
-      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-      <line num="8" count="2" type="stmt"/>
-      <line num="9" count="2" type="stmt"/>
-      <line num="10" count="6" type="stmt"/>
-      <line num="11" count="4" type="stmt"/>
-      <line num="12" count="4" type="stmt"/>
-      <line num="13" count="4" type="stmt"/>
-      <line num="15" count="6" type="stmt"/>
-      <line num="16" count="4" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="16" count="5" type="stmt"/>
       <line num="17" count="4" type="stmt"/>
       <line num="18" count="4" type="stmt"/>
-      <line num="20" count="6" type="stmt"/>
-      <line num="24" count="6" type="stmt"/>
-      <line num="25" count="6" type="stmt"/>
+      <line num="19" count="4" type="stmt"/>
+      <line num="21" count="4" type="stmt"/>
+      <line num="23" count="5" type="stmt"/>
+      <line num="24" count="2" type="stmt"/>
+      <line num="25" count="2" type="stmt"/>
+      <line num="26" count="2" type="stmt"/>
+      <line num="28" count="2" type="stmt"/>
+      <line num="31" count="5" type="stmt"/>
+      <line num="32" count="5" type="stmt"/>
+      <line num="33" count="5" type="stmt"/>
+    </file>
+    <file name="FN_Lookup.js" path="/home/johan/projects/cuddly-computing-machine/src/base/FN_Lookup.js">
+      <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <line num="8" count="2" type="stmt"/>
+      <line num="9" count="2" type="stmt"/>
+      <line num="15" count="2" type="stmt"/>
+      <line num="16" count="6" type="stmt"/>
+      <line num="17" count="4" type="stmt"/>
+      <line num="18" count="4" type="stmt"/>
+      <line num="19" count="4" type="stmt"/>
+      <line num="21" count="6" type="stmt"/>
+      <line num="22" count="4" type="stmt"/>
+      <line num="23" count="4" type="stmt"/>
+      <line num="24" count="4" type="stmt"/>
+      <line num="26" count="6" type="stmt"/>
+      <line num="27" count="6" type="stmt"/>
+      <line num="28" count="6" type="stmt"/>
     </file>
   </project>
 </coverage>
